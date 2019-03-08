@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import com.githang.statusbar.StatusBarCompat
 import com.dengdongqi.ipc_app.intent.IntentServerActivity
+import com.dengdongqi.ipc_app.messenger.MessengerIPCActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.title_bar.*
 
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         bt2.setOnClickListener {
             //Message IPC
+            startActivity(Intent(this,MessengerIPCActivity::class.java))
         }
 
         bt3.setOnClickListener {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.dengdongqi.ipc_app">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.dengdongqi.ipc_app">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -13,6 +14,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <service
+                android:name=".messenger.MessengerService"
+                android:enabled="true"
+                android:exported="true"
+                android:process=":MessengerIPC"
+        >
+        </service>
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -25,11 +33,10 @@
         <activity android:name=".contentProvider.ContentProviderIPCActivity"/>
         <activity android:name=".fileShare.FileShareIPCActivity"/>
         <activity android:name=".intent.IntentIPCActivity"/>
-
-        <activity android:name=".intent.IntentServerActivity"
-                  android:process=":intentProcess"
-        />
-        <activity android:name=".message.MessageIPCActivity"/>
+        <activity
+                android:name=".intent.IntentServerActivity"
+                android:process=":intentProcess"/>
+        <activity android:name=".messenger.MessengerIPCActivity"/>
     </application>
 
 </manifest>
