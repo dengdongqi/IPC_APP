@@ -13,7 +13,7 @@ class IntentServerActivity : AppCompatActivity() {
     private lateinit var bundle: Bundle
     //静态变量
     companion object {
-        var Name = ""
+        var Message = ""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,18 +23,12 @@ class IntentServerActivity : AppCompatActivity() {
         event()
     }
 
-
-
     private fun inits() {
         StatusBarCompat.setStatusBarColor(this, ContextCompat.getColor(this,R.color.baseColor))
-        tvTitle.text = "Intent IPC 服务端"
-
-        val intent = intent
-        tvContent.text = intent.getStringExtra("data")
-
-        tvName.text = Name
-
-        Log.e("DDQ","data = ${tvContent.text} , Name = $Name")
+        tvTitle.text = "Intent IPC"
+        tvMsg1.text = intent.getStringExtra("Message")
+        tvMsg2.text = Message
+        Log.e("IPC","intent Msg = ${tvMsg1.text} , Message = $Message")
     }
 
     private fun event() {
