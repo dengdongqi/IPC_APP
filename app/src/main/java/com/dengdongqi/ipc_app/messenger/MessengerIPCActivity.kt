@@ -9,6 +9,7 @@ import android.os.*
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import com.blankj.utilcode.util.ToastUtils
 import com.dengdongqi.ipc_app.R
 import com.dengdongqi.ipc_app.messenger.MessengerIPCActivity.Companion.MSG_FROM_CLIENT
 import kotlinx.android.synthetic.main.activity_message_ipc.*
@@ -47,6 +48,8 @@ class MessengerIPCActivity : AppCompatActivity() {
 
     private fun inits() {
         tvTitle.text = "Messenger IPC"
+
+        ToastUtils.showShort("Log 查看数据传递")
     }
 
     private fun event() {

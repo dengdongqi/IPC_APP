@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.dengdongqi.ipc_app">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.dengdongqi.ipc_app">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/appName"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/appName"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
         <service
-                android:name=".messenger.MessengerService"
-                android:enabled="true"
-                android:exported="true"
-                android:process=":MessengerIPC"
-        >
-        </service>
+            android:name=".messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":MessengerIPC"></service>
 
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aidl.AIDLIPCActivity"/>
-        <activity android:name=".contentProvider.ContentProviderIPCActivity"/>
-        <activity android:name=".fileShare.FileShareIPCActivity"/>
-        <activity android:name=".intent.IntentIPCActivity"/>
+        <activity android:name=".aidl.AIDLIPCActivity" />
+        <activity android:name=".contentProvider.ContentProviderIPCActivity" />
+        <activity android:name=".fileShare.FileShareIPCActivity" />
+        <activity android:name=".intent.IntentIPCActivity" />
         <activity
-                android:name=".intent.IntentServerActivity"
-                android:process=":intentProcess"/>
-        <activity android:name=".messenger.MessengerIPCActivity"/>
+            android:name=".intent.IntentServerActivity"
+            android:process=":intentProcess" />
+        <activity android:name=".messenger.MessengerIPCActivity" />
+        <activity android:name=".fileShare.FileIpcActivity"
+            android:process=":fileProcess" />
     </application>
 
 </manifest>
