@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import com.blankj.utilcode.constant.PermissionConstants
 import com.blankj.utilcode.util.*
+import com.dengdongqi.ipc_app.aidl.AIDLIPCActivity
 import com.dengdongqi.ipc_app.contentProvider.ContentProviderIPCActivity
 import com.dengdongqi.ipc_app.fileShare.FileIpcActivity
 import com.githang.statusbar.StatusBarCompat
@@ -100,6 +101,20 @@ class MainActivity : AppCompatActivity() {
 
         bt5.setOnClickListener {
             //AIDL IPC
+            /*
+                1.创建 AIDL
+                创建要操作的实体类（Book.kt），实现 Parcelable 接口，以便序列化/反序列化;
+                AS下 File - new - AIDL 命名实体类相同名(Book.aidl) 删除默认接口 import 实体类
+                新建 BookController.aidl 文件夹，在其中创建接口 aidl 文件以及实体类的映射 aidl 文件
+                Make project ，生成  Binder 的 Java 文件（app/build/generated.....BookController）
+                2.服务端
+                创建 Service，在其中创建上面生成的 Binder 对象实例(BookController.Stub())，实现接口定义的方法并在 onBind() 中返回
+                3.客户端
+                实现 ServiceConnection 接口，在其中拿到 AIDL 类
+                bindService()
+                调用 AIDL 类中定义好的操作请求
+            * */
+            startActivity(Intent(this,AIDLIPCActivity::class.java))
         }
     }
 }

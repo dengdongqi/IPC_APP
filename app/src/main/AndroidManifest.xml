@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,31 +27,39 @@
         <activity android:name=".fileShare.FileShareIPCActivity" />
         <activity android:name=".intent.IntentIPCActivity" />
         <activity android:name=".messenger.MessengerIPCActivity" />
+
         <provider
             android:name=".contentProvider.BookProvider"
             android:authorities="com.dengdongqi.proivider"
             android:enabled="true"
-            android:exported="true"/>
-
+            android:exported="true" />
 
         <service
             android:name=".messenger.MessengerService"
             android:enabled="true"
             android:exported="true"
             android:process=":MessengerIPC" />
-
-        <activity android:name=".contentProvider.ContentProviderIPCActivity"
-            android:process=":providerProcess"
-            />
-
+        <activity
+            android:name=".contentProvider.ContentProviderIPCActivity"
+            android:process=":providerProcess" />
         <activity
             android:name=".intent.IntentServerActivity"
             android:process=":intentProcess" />
-
         <activity
             android:name=".fileShare.FileIpcActivity"
             android:process=":fileProcess" />
 
+        <service
+            android:name=".aidl.AidlService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":aidl"
+            >
+            <intent-filter>
+                <action android:name="com.dengdongqi.ipc_app.aidl.service"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
