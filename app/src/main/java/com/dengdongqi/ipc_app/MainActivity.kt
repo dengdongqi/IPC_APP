@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import com.blankj.utilcode.constant.PermissionConstants
 import com.blankj.utilcode.util.*
+import com.dengdongqi.ipc_app.contentProvider.ContentProviderIPCActivity
 import com.dengdongqi.ipc_app.fileShare.FileIpcActivity
 import com.githang.statusbar.StatusBarCompat
 import com.dengdongqi.ipc_app.intent.IntentServerActivity
@@ -80,7 +81,8 @@ class MainActivity : AppCompatActivity() {
             if (FileUtils.createOrExistsFile(filepath)){
                 val file = File(filepath)
                 if (file.exists()) {
-                    if (FileIOUtils.writeFileFromString(file, "你好，我是app主进程")){
+                    if (FileIOUtils.readFile2String(file).isNullOrEmpty()){
+                        FileIOUtils.writeFileFromString(file, "你好，我是app主进程")
                     }
                 }
             }
@@ -92,6 +94,8 @@ class MainActivity : AppCompatActivity() {
 
         bt4.setOnClickListener {
             //ContentProvider IPC
+            /* ContentProvider的底层是采用 Android中的 Binder机制 */
+            startActivity(Intent(this,ContentProviderIPCActivity::class.java))
         }
 
         bt5.setOnClickListener {

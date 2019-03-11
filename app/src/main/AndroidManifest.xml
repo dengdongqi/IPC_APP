@@ -15,12 +15,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <service
-            android:name=".messenger.MessengerService"
-            android:enabled="true"
-            android:exported="true"
-            android:process=":MessengerIPC"></service>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,15 +23,34 @@
             </intent-filter>
         </activity>
         <activity android:name=".aidl.AIDLIPCActivity" />
-        <activity android:name=".contentProvider.ContentProviderIPCActivity" />
         <activity android:name=".fileShare.FileShareIPCActivity" />
         <activity android:name=".intent.IntentIPCActivity" />
+        <activity android:name=".messenger.MessengerIPCActivity" />
+        <provider
+            android:name=".contentProvider.BookProvider"
+            android:authorities="com.dengdongqi.proivider"
+            android:enabled="true"
+            android:exported="true"/>
+
+
+        <service
+            android:name=".messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":MessengerIPC" />
+
+        <activity android:name=".contentProvider.ContentProviderIPCActivity"
+            android:process=":providerProcess"
+            />
+
         <activity
             android:name=".intent.IntentServerActivity"
             android:process=":intentProcess" />
-        <activity android:name=".messenger.MessengerIPCActivity" />
-        <activity android:name=".fileShare.FileIpcActivity"
+
+        <activity
+            android:name=".fileShare.FileIpcActivity"
             android:process=":fileProcess" />
+
     </application>
 
 </manifest>
