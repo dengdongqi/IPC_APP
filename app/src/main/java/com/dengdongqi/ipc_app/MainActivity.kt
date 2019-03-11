@@ -106,11 +106,11 @@ class MainActivity : AppCompatActivity() {
                 创建要操作的实体类（Book.kt），实现 Parcelable 接口，以便序列化/反序列化;
                 AS下 File - new - AIDL 命名实体类相同名(Book.aidl) 删除默认接口 import 实体类
                 新建 BookController.aidl 文件夹，在其中创建接口 aidl 文件以及实体类的映射 aidl 文件
-                Make project ，生成  Binder 的 Java 文件（app/build/generated.....BookController）
+                Make project -> 将自动生成  Binder 的 Java 文件（app/build/generated.....BookController.java）
                 2.服务端
-                创建 Service，在其中创建上面生成的 Binder 对象实例(BookController.Stub())，实现接口定义的方法并在 onBind() 中返回
+                创建 Service，在其中onBind() 中返回 Binder 对象实例(BookController.Stub())并实现接口定义的方法
                 3.客户端
-                实现 ServiceConnection 接口，在其中拿到 AIDL 类
+                实现 ServiceConnection 接口，在其中拿到 AIDL 类 (controller = BookController.Stub.asInterface(service))
                 bindService()
                 调用 AIDL 类中定义好的操作请求
             * */
