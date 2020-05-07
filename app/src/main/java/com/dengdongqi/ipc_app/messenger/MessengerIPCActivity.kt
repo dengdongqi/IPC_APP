@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.activity_message_ipc.*
 import kotlinx.android.synthetic.main.title_bar.*
 
 class MessengerIPCActivity : AppCompatActivity() {
+    var isok = false
+
     companion object {
         //静态常量
         val TAG = MessengerIPCActivity::class.java.simpleName
@@ -31,7 +33,7 @@ class MessengerIPCActivity : AppCompatActivity() {
         override fun handleMessage(msg: Message?) {
             super.handleMessage(msg)
             if (msg?.what == MessengerService.MSG_FROM_SERVICE) {
-                Log.e(TAG, "服务端返回的数据：${msg.data.getString("ServiceMsg")}")
+                ToastUtils.showShort( "服务端返回的数据：${msg.data.getString("ServiceMsg")}")
             }
         }
     }
@@ -99,19 +101,22 @@ class MessengerIPCActivity : AppCompatActivity() {
 
     val mServiceConnected = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            Log.e(TAG, "服务绑定成功")
+            ToastUtils.showShort( "服务绑定成功")
+            isok = true;
             //获取服务端信息发送者
             mServiceMessenger = Messenger(service)
         }
 
         override fun onServiceDisconnected(name: ComponentName?) {
-            Log.e(TAG, "服务解绑成功")
+            ToastUtils.showShort( "服务解绑成功")
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        unbindService(mServiceConnected)
+        if(isok) {
+            unbindService(mServiceConnected)
+        }
         mhandle.removeCallbacksAndMessages(null)
     }
 }

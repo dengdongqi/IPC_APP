@@ -4,6 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.*
 import android.util.Log
+import com.blankj.utilcode.util.ToastUtils
 
 /**
  * 服务端创建一个 Service 来处理客户端请求，同时通过一个 Handler 对象来实例化一个 Messenger 对象，
@@ -22,7 +23,7 @@ class MessengerService : Service() {
             when(msg!!.what){
                 MessengerIPCActivity.MSG_FROM_CLIENT -> {
 
-                    Log.e(TAG,"服务端收到客服端信息："+msg.data.getString("clientMsg"))
+                    ToastUtils.showShort("服务端WebSocketManager收到客服端信息：${msg.data.getString("clientMsg")}")
 
                     val client = msg.replyTo
                     val replyMsg = Message()

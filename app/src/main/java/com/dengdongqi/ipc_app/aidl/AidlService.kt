@@ -4,6 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.dengdongqi.ipc_app.BookController
 
 class AidlService : Service() {
@@ -38,8 +39,9 @@ class AidlService : Service() {
         override fun addBookInOut(book: Book?) {
             if (book != null) {
                 bookLists.add(book)
+                ToastUtils.showShort("AidlService 收到添加${book.name}")
             } else {
-               LogUtils.e("接收到了一个空对象 InOut")
+                ToastUtils.showShort("接收到了一个空对象 InOut")
             }
         }
     }

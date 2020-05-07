@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.dengdongqi.ipc_app">
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -15,7 +14,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".aidl.AIDLIPCActivity" />
-        <activity android:name=".fileShare.FileShareIPCActivity" />
-        <activity android:name=".intent.IntentIPCActivity" />
+        <activity android:name=".socket.TestSocketActivity"/>
         <activity android:name=".messenger.MessengerIPCActivity" />
 
         <provider
@@ -43,7 +40,7 @@
             android:name=".contentProvider.ContentProviderIPCActivity"
             android:process=":providerProcess" />
         <activity
-            android:name=".intent.IntentServerActivity"
+            android:name=".intent.BundleIpcActivity"
             android:process=":intentProcess" />
         <activity
             android:name=".fileShare.FileIpcActivity"
@@ -60,6 +57,19 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
+
+        <!--<service
+            android:name=".socket.SocketService"
+            android:enabled="true"
+            android:exported="true"
+            android:persistent="true"
+            android:process=":socket"
+            >
+            <intent-filter> &lt;!&ndash; 提供外部启动 &ndash;&gt;
+                <action android:name="com.android.smartbath.connection.websocket.SocketService" />
+                <category android:name="android.intent.category.DEFAULT" /> &lt;!&ndash;隐式Intent启动&ndash;&gt;
+            </intent-filter>
+        </service>-->
     </application>
 
 </manifest>

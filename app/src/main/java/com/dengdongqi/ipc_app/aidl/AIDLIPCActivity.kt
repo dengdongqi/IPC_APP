@@ -37,6 +37,8 @@ class AIDLIPCActivity : AppCompatActivity() {
     private fun inits() {
         StatusBarCompat.setStatusBarColor(this, ContextCompat.getColor(this,R.color.baseColor))
         tvTitle.text = "AIDL IPC"
+
+
         bindAidlService()
     }
 
@@ -76,7 +78,7 @@ class AIDLIPCActivity : AppCompatActivity() {
                 val book = Book(etBook.text.toString())
                 try {
                     controller.addBookInOut(book)
-                    LogUtils.e("向服务器以InOut方式添加了一本新书.新书名：${book.name}")
+                    ToastUtils.showShort("向服务器以InOut方式添加了一本新书.新书名：${book.name}")
                 }catch (e: RemoteException){
                     e.printStackTrace()
                 }

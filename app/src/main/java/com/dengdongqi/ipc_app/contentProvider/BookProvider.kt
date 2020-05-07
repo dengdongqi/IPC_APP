@@ -28,11 +28,11 @@ class BookProvider : ContentProvider() {
         mDB = DBOpenHelper(mContext).writableDatabase
         mDB!!.execSQL("delete from " + DBOpenHelper.BOOK_TABLE_NAME)
         mDB!!.execSQL("delete from " + DBOpenHelper.USER_TABLE_NAME)
-        mDB!!.execSQL("insert into book values(3,'Android');")
-        mDB!!.execSQL("insert into book values(4,'iOS');")
-        mDB!!.execSQL("insert into book values(5,'Html5');")
-        mDB!!.execSQL("insert into user values(1,'haohao',1);")
-        mDB!!.execSQL("insert into user values(2,'nannan',0);")
+        mDB!!.execSQL("insert into book values(3,'三国演义');")
+        mDB!!.execSQL("insert into book values(4,'水浒传');")
+        mDB!!.execSQL("insert into book values(5,'红楼梦');")
+        mDB!!.execSQL("insert into user values(1,'小明',1);")
+        mDB!!.execSQL("insert into user values(2,'小花',2);")
     }
 
     override fun query(uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?): Cursor? {

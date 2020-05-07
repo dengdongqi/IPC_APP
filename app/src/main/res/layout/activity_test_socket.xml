@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#fffff0"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试socket"
+        android:textSize="32sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20px"
+        android:gravity="center_horizontal"
+        >
+        <Button
+            android:id="@+id/startS"
+            style="@style/btStyle"
+            android:background="@drawable/bt_bg"
+            android:text="开启服务"
+            android:layout_marginRight="100dp"
+            />
+
+        <Button
+            android:id="@+id/stopS"
+            style="@style/btStyle"
+            android:background="@drawable/bt_bg"
+            android:text="停止服务"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="50px"
+            android:orientation="vertical"
+            android:layout_marginRight="100px"
+            >
+            <Button
+                android:id="@+id/ljS"
+                style="@style/btStyle"
+                android:background="@drawable/bt_bg"
+                android:text="连接服务"
+                android:layout_marginTop="20px"
+                />
+
+            <EditText
+                android:id="@+id/etC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hint"
+                android:layout_marginTop="50px"
+                />
+
+            <Button
+                android:id="@+id/cSend"
+                style="@style/btStyle"
+                android:background="@drawable/bt_bg"
+                android:text="发送信息"
+                android:layout_marginTop="20px"
+                />
+
+            <ImageView
+                android:id="@+id/ivC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginTop="20px"
+                />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20px"
+                >
+                <TextView
+                    android:id="@+id/cRec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务端信息:"
+                    android:textColor="#ff0000"
+                    android:textSize="32px"
+                    />
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="50px"
+            android:orientation="vertical"
+            >
+            <Button
+                style="@style/btStyle"
+                android:background="@drawable/bt_bg"
+                android:text=""
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="20px"
+                />
+
+            <EditText
+                android:id="@+id/etS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hint"
+                android:layout_marginTop="50px"
+                />
+
+            <Button
+                android:id="@+id/sSend"
+                style="@style/btStyle"
+                android:background="@drawable/bt_bg"
+                android:text="发送信息"
+                android:layout_marginTop="20px"
+                />
+
+            <ImageView
+                android:id="@+id/ivS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:src="@mipmap/ic_launcher"
+                />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20px"
+                >
+            <TextView
+                android:id="@+id/sRec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客户端信息:"
+                android:textColor="#ff0000"
+                android:textSize="32px"
+                />
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

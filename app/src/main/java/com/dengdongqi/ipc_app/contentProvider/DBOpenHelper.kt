@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper
 
 /**
  * Created by Dengdongqi on 2019/3/11.
- * Copyright © 2018, 长沙豆子信息技术有限公司, All rights reserved.
  */
 class DBOpenHelper(context: Context?, name: String?, factory: SQLiteDatabase.CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
 
@@ -32,7 +31,6 @@ class DBOpenHelper(context: Context?, name: String?, factory: SQLiteDatabase.Cur
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(CREATE_BOOK_TABLE)
         db.execSQL(CREATE_USER_TABLE)
-
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

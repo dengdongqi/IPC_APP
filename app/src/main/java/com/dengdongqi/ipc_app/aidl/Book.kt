@@ -5,7 +5,6 @@ import android.os.Parcelable
 
 /**
  * Created by Dengdongqi on 2019/3/11.
- * Copyright © 2018, 长沙豆子信息技术有限公司, All rights reserved.
  */
 class Book(name: String?) : Parcelable{
     var name : String? = name
